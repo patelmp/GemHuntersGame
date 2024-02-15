@@ -55,73 +55,49 @@ namespace GemHunters
             }
         }
     }
-    //defines a Cell class
-    public class Cell
+    //defines a  Game class
+    public class Game
     {
-        public string Occupant { get; set; }
+        private readonly Board _board;
+        private readonly Player _player1;
+        private readonly Player _player2;
+        private Player _currentTurn;
+        private int _totalTurns;
 
-        public Cell(string occupant)
+        public Game()
         {
-            Occupant = occupant;
+            _board = new Board();
+            _player1 = new Player("P1", new Position(0, 0));
+            _player2 = new Player("P2", new Position(5, 5));
+            _currentTurn = _player1;
+            _totalTurns = 0;
+            InitializeBoard();
         }
-    }
 
-    //defines a Board class
-    public class Board
-    {
-        public Cell[,] Grid { get; }
-
-        public Board()
+        private void InitializeBoard()
         {
-            Grid = new Cell[6, 6];
-            // Initialize the board with empty cells
+            Random rand = new Random();
+            // Place gems randomly on the board
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    Grid[i, j] = new Cell("-");
+                    if (rand.Next(0, 5) == 0 && _board.Grid[i, j].Occupant == "-")
+                    {
+                        _board.Grid[i, j].Occupant = "G";
+                    }
                 }
             }
-        }
-        //defines a void Display 
-        public void Display()
-        {
+            // Place obstacles randomly on the board
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    Console.Write(Grid[i, j].Occupant + " ");
+                    if (rand.Next(0, 6) == 0 && _board.Grid[i, j].Occupant == "-")
+                    {
+                        _board.Grid[i, j].Occupant = "O";
+                    }
                 }
-                Console.WriteLine();
-            }
-        }
-        //defines a public class for move with switch condition       
-
-        public bool IsValidMove(Player player, char direction)
-        {
-            // Check if the move is within the bounds of the board
-            switch (direction)
-            {
-                case 'U':
-                    return player.Position.Y > 0 && Grid[player.Position.Y - 1, player.Position.X].Occupant != "O";
-                case 'D':
-                    return player.Position.Y < 5 && Grid[player.Position.Y + 1, player.Position.X].Occupant != "O";
-                case 'L':
-                    return player.Position.X > 0 && Grid[player.Position.Y, player.Position.X - 1].Occupant != "O";
-                case 'R':
-                    return player.Position.X < 5 && Grid[player.Position.Y, player.Position.X + 1].Occupant != "O";
-                default:
-                    return false;
-            }
-        }
-
-        public void CollectGem(Player player)
-        {
-            if (Grid[player.Position.Y, player.Position.X].Occupant == "G")
-            {
-                player.GemCount++;
-                Grid[player.Position.Y, player.Position.X].Occupant = "-";
             }
         }
     }
-}
