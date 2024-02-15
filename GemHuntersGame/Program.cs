@@ -14,6 +14,7 @@ namespace GemHunters
             Y = y;
         }
     }
+<<<<<<< HEAD
 
 
     // declares a public class named Player.
@@ -56,4 +57,6 @@ namespace GemHunters
             }
         }
     }
+=======
+>>>>>>> 4925c646c7dc243507adf656f2b8f7a5d6d96944
 }
