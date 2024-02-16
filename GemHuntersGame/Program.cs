@@ -114,7 +114,6 @@ namespace GemHunters
                     return false;
             }
         }
-
         public void CollectGem(Player player)
         {
             if (Grid[player.Position.Y, player.Position.X].Occupant == "G")
@@ -142,7 +141,6 @@ namespace GemHunters
             _totalTurns = 0;
             InitializeBoard();
         }
-
         private void InitializeBoard()
         {
             Random rand = new Random();
@@ -169,7 +167,6 @@ namespace GemHunters
                 }
             }
         }
-
         public void Start()
         {
             while (!IsGameOver())
