@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
+
 namespace GemHunters
 {
     //  declares a public class named "Position"
@@ -14,7 +14,6 @@ namespace GemHunters
             Y = y;
         }
     }
-
     // declares a public class named Player.
     public class Player
     {
@@ -32,7 +31,6 @@ namespace GemHunters
             GemCount = 0;
         }
         //defines a method named Move within the Player class.
-
         public void Move(char direction)
         {
             switch (direction)
@@ -65,12 +63,10 @@ namespace GemHunters
             Occupant = occupant;
         }
     }
-
     //defines a Board class
     public class Board
     {
         public Cell[,] Grid { get; }
-
         public Board()
         {
             Grid = new Cell[6, 6];
@@ -96,7 +92,6 @@ namespace GemHunters
             }
         }
         //defines a public class for move with switch condition       
-
         public bool IsValidMove(Player player, char direction)
         {
             // Check if the move is within the bounds of the board
@@ -131,7 +126,6 @@ namespace GemHunters
         private readonly Player _player2;
         private Player _currentTurn;
         private int _totalTurns;
-
         public Game()
         {
             _board = new Board();
@@ -190,17 +184,14 @@ namespace GemHunters
             }
             AnnounceWinner();
         }
-
         private void SwitchTurn()
         {
             _currentTurn = _currentTurn == _player1 ? _player2 : _player1;
         }
-
         private bool IsGameOver()
         {
             return _totalTurns >= 30;
         }
-
         private void AnnounceWinner()
         {
             Console.WriteLine("Game Over!");
@@ -220,7 +211,6 @@ namespace GemHunters
             }
         }
     }
-
     // Main class
     class Program
     {
