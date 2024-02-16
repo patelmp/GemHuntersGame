@@ -55,8 +55,6 @@ namespace GemHunters
             }
         }
     }
-<<<<<<<<< Temporary merge branch 1
-=========
     //defines a Cell class
     public class Cell
     {
@@ -126,5 +124,4 @@ namespace GemHunters
             }
         }
     }
->>>>>>>>> Temporary merge branch 2
 }
