@@ -217,4 +217,14 @@ namespace GemHunters
             }
         }
     }
+    // Main class not use at all but required for build purpose and avoid unwanted error
+    //Program does not contain a static 'Main' method suitable for an entry point
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Game game = new Game();
+            game.Start();
+        }
+    }
 }
