@@ -152,10 +152,7 @@ namespace GemHunters
                     }
                 }
             }
-            /*            // Place players on the board
-                        _board.Grid[0, 0].Occupant = "P1";
-                        _board.Grid[-1, -1].Occupant = "P2";
-            */
+
             // Place obstacles randomly on the board
             for (int i = 0; i < 6; i++)
             {
@@ -218,15 +215,6 @@ namespace GemHunters
             {
                 Console.WriteLine("It's a tie!");
             }
-        }
-    }
-    // Main class
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Game game = new Game();
-            game.Start();
         }
     }
 }
