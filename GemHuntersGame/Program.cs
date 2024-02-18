@@ -133,7 +133,7 @@ namespace GemHunters
         {
             _board = new Board();
             _player1 = new Player("P1", new Position(0, 0));
-            _player2 = new Player("P2", new Position(-1, -1));
+            _player2 = new Player("P2", new Position(-5, -5));
             _currentTurn = _player1;
             _totalTurns = 0;
             InitializeBoard();
