@@ -78,6 +78,9 @@ namespace GemHunters
                     Grid[i, j] = new Cell("-");
                 }
             }
+            // Place players on the board
+            Grid[0, 0].Occupant = "P1";
+            Grid[5, 5].Occupant = "P2";
         }
         //defines a void Display 
         public void Display()
@@ -130,7 +133,7 @@ namespace GemHunters
         {
             _board = new Board();
             _player1 = new Player("P1", new Position(0, 0));
-            _player2 = new Player("P2", new Position(5, 5));
+            _player2 = new Player("P2", new Position(-1, -1));
             _currentTurn = _player1;
             _totalTurns = 0;
             InitializeBoard();
@@ -149,6 +152,10 @@ namespace GemHunters
                     }
                 }
             }
+            /*            // Place players on the board
+                        _board.Grid[0, 0].Occupant = "P1";
+                        _board.Grid[-1, -1].Occupant = "P2";
+            */
             // Place obstacles randomly on the board
             for (int i = 0; i < 6; i++)
             {
@@ -174,6 +181,8 @@ namespace GemHunters
                 {
                     _currentTurn.Move(direction);
                     _board.CollectGem(_currentTurn);
+                    //Added new display message
+                    Console.WriteLine($"Player {_currentTurn.Name} collected a gem!");
                 }
                 else
                 {
